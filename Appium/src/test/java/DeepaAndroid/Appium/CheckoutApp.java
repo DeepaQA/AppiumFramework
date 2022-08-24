@@ -19,6 +19,9 @@ public class CheckoutApp extends BrowserBaseTest {
 
 	@Test
 	
+	
+	
+	//Checkout app demo
 	public void CheckoutDemoApp() throws InterruptedException, IOException
 	{
 		driver.get("https://demowebapp.verifayalabs.com/");

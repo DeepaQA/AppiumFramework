@@ -10,7 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
@@ -90,6 +90,8 @@ public class Ecommerce_TC4 extends BaseTest1 {
 		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.context("NATIVE_APP");
+		
+		System.out.println("Switch to webview and back to native view completed");
 		
 	Thread.sleep(5000);
 		
