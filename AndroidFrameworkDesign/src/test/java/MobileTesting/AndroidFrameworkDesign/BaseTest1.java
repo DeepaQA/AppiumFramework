@@ -1,8 +1,9 @@
-package DeepaAndroid.Appium;
+package MobileTesting.AndroidFrameworkDesign;
 
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class BaseTest1 {
 	
 	//public AppiumDriverLocalService service;
 	
+
 	public AndroidDriver driver;
 	
 	@BeforeClass
@@ -38,6 +40,14 @@ public class BaseTest1 {
 		options.setApp("E:\\Rahul Shetty\\Appium\\src\\test\\java\\resources\\General-Store.apk");
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		
+	}
+	public Double getFormattedAmount(String amount)
+	{
+		Double price=Double.parseDouble(amount.substring(1));
+		return price;
 	}
 	
 	public void longPressAction(WebElement ele)
@@ -45,12 +55,8 @@ public class BaseTest1 {
 		((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
 				ImmutableMap.of("elementId",((RemoteWebElement)ele).getId(),"duration",2000));
 	}
+		
 	
-	public Double getFormattedAmount(String amount)
-	{
-		Double price=Double.parseDouble(amount.substring(1));
-		return price;
-	}
 		
 	@AfterClass
 	public void tearDown()
